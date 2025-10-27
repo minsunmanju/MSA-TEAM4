@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://team4.store",
+  baseURL: "http://team4.store:8080",
   withCredentials: true,
 });
 
