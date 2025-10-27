@@ -20,7 +20,7 @@ public class SecurityConfig {
                 .pathMatchers("/api/v1/post/**").permitAll()
                 .pathMatchers("/api/auth/**").permitAll()
                 .pathMatchers("/actuator/**").permitAll()
-                .anyExchange().authenticated()
+                .anyExchange().permitAll() // ✅ 게이트웨이 레벨에서 전체 허용 (필요 시 수정)
             );
 
         return http.build();
