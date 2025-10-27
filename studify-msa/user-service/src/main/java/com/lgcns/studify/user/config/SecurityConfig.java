@@ -30,9 +30,10 @@ public class SecurityConfig {
         http
             .cors(cors -> cors.disable())  // CORS는 WebConfig에서 처리
             .csrf(csrf -> csrf.disable())
+            .httpBasic(httpBasic -> httpBasic.disable()) // ✅ 기본 로그인 팝업 완전히 비활성화
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authz -> authz
-                .anyRequest().permitAll()  // 테스트를 위해 모든 요청 허용
+                .anyRequest().permitAll()  // 테스트용 전체 허용
             );
 
         return http.build();
